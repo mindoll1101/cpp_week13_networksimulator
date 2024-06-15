@@ -42,7 +42,6 @@ public:
     }
     port_ = port;
     packet_ = nullptr;
-    log("");
     while(startTime_ < stopTime_){
       std::function<void()> fptr = [this](){this -> send();};
       Simulator::schedule(startTime_, fptr);
