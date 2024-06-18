@@ -11,7 +11,7 @@ private:
   PacketSinkService(Host *host, short port) : Service(host, port){};
   virtual std::string name(){return "PacketSinkService";}
 public:
-  void init(){
+  void initialize(){
     totalBytes_ = 0;
   }
   void execute(Packet *packet){

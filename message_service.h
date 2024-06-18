@@ -25,7 +25,7 @@ private:
 
 public:
   // 메시지를 전송한다
-  void init(){
+  void initialize(){
     packet_ = nullptr;
   }
   void send(std::string message){

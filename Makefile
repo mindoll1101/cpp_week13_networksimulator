@@ -18,16 +18,16 @@ link.o: link.cpp link.h object.h
 link_installer.o: link_installer.cpp link_installer.h
 	$(CC) $(CFLAGS) -c -o link_installer.o link_installer.cpp
 
-first.o: scenarios/first.cpp echo_service.h echo_service_installer.h host.h link_installer.h manual_router.h message_service_installer.h
+first.o: scenarios/first.cpp echo_service.h echo_service_installer.h host.h link_installer.h manual_router.h message_service_installer.h simulator.h
 	$(CC) $(CFLAGS) -c -o first.o scenarios/first.cpp
 
-second.o: scenarios/second.cpp echo_service.h echo_service_installer.h host.h link_installer.h manual_router.h message_service_installer.h
+second.o: scenarios/second.cpp echo_service.h echo_service_installer.h host.h link_installer.h manual_router.h message_service_installer.h simulator.h
 	$(CC) $(CFLAGS) -c -o second.o scenarios/second.cpp
 
-third.o: scenarios/third.cpp echo_service.h echo_service_installer.h host.h link_installer.h manual_router.h message_service_installer.h
+third.o: scenarios/third.cpp echo_service.h echo_service_installer.h host.h link.h link_installer.h auto_router.h message_service_installer.h bulk_send_service.h packet_sink_service.h simulator.h
 	$(CC) $(CFLAGS) -c -o third.o scenarios/third.cpp
 
-forth.o: scenarios/forth.cpp echo_service.h echo_service_installer.h host.h link_installer.h manual_router.h message_service_installer.h
+forth.o: scenarios/forth.cpp echo_service.h message_service.h echo_service_installer.h host.h link.h link_installer.h auto_router.h message_service_installer.h bulk_send_service.h packet_sink_service.h simulator.h
 	$(CC) $(CFLAGS) -c -o forth.o scenarios/forth.cpp
 
 first: first.o  link_installer.o node.o link.o object.o simulator.o
@@ -41,6 +41,6 @@ third: third.o link_installer.o node.o link.o simulator.o object.o
 
 forth: forth.o link_installer.o node.o link.o simulator.o object.o
 	$(CC) $(CFLAGS) -o forth forth.o link_installer.o node.o link.o simulator.o object.o
-
+	
 clean:
-	rm -f *.o first second third first
+	rm -f *.o first second third forth

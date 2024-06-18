@@ -17,7 +17,7 @@ private:
   EchoService(Host *host, short port) : Service(host, port) {}
   
 public:
-  void init(){
+  void initialize(){
     packet_ = nullptr;
   }
   void send(Packet *packet){

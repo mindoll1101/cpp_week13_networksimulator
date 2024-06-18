@@ -24,8 +24,6 @@ public:
   ~Link(){}
   void link(Node *node, Packet *packet);
 
-  void packetOut();
-
   double delay() { return delay_; }
 
   Node *nodeA() { return nodeA_; }

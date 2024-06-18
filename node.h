@@ -21,7 +21,7 @@ public:
 
   virtual ~Node(){};
   virtual void receive(Packet *packet) = 0;
-
+  virtual Address address(){return -1;}
   int id() const { return id_; }
   void setPacket(Packet *packet);
   Packet *getPacket(){return packet_;}

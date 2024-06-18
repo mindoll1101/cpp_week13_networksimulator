@@ -28,7 +28,7 @@ public:
   // 호스트와 설치된 서비스를 전부 초기화한다.
   void initialize(){
     for(int i = 0; i < (int)services_.size(); i++){
-      services_[i] -> init();
+      services_[i] -> initialize();
     }
   }
 
